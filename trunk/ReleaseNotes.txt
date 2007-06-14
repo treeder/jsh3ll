@@ -1,0 +1,427 @@
+jSh3ll Release Notes
+--------------------
+
+jSh3ll (v5.0)
+-------------
+Posted on Saturday September 9, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is an enhancement release:
+1. Added 'putfilecontenttype' command.
+You can now specify the content type of a file being sent to S3.
+Code provided by Patryk Laurent.
+
+jSh3ll (v4.1)
+-------------
+Posted on Wednesday August 24, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is a bugfix release:
+1. Updated 'putfile' command implementation to prevent OutOfMemory errors for large files (>500Mb).
+Set the content-length manually and force the HttpURLConnection into "streaming mode"
+Fix provided by Joel Hegg.
+
+jSh3ll (v4.0)
+-------------
+Posted on Monday June 5, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is an enhancement release:
+1. Added 'copy' and 'copyall' commands.
+You can now copy an item from one bucket to another, or all items (with an optional prefix) from one bucket to another bucket.
+If the destination bucket is owned by another S3 user, you can specify the access key id and secret access key of that S3 account.
+jSh3ll uses two simultaneous S3 connections to stream the data from the source bucket to the destination bucket.
+No local memory or storage is used in the data transfer.
+
+jSh3ll (v3.5)
+-------------
+Posted on Monday May 29, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is a bugfixrelease:
+1. Updated "head" command so that it now correctly prints the metadata for a bucket or item.
+Fix provided by Steve Isaacson.
+
+jSh3ll (v3.4)
+-------------
+Posted on Monday May 22, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is a license update release:
+1. Updated to use the MIT License.
+
+jSh3ll (v3.3)
+-------------
+Posted on Tuesday May 16, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is an bugfix release:
+1. Fixed "putfile" and "putfilewacl" commands so that they now support files of up to 5GB in size.
+
+jSh3ll (v3.2)
+-------------
+Posted on Saturday May 13, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is an bugfix and enhancement release:
+1. Modified "deleteall" command so it deletes ALL objects in a bucket, instead of the first 1000 objects. 
+S3 was only returning the first 1000 items of the bucket.
+2. Added a "putdir" and "putdirwacl" command.
+You can now upload all files in a directory to an S3 bucket.
+The implementation of these commands extends sample code provided by Justin McCuistion.
+
+jSh3ll (v2.1)
+-------------
+Posted on Wednesday April 19, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is an bugfix release:
+1. Modified "getfile" command to read the object data directly from the response stream.
+See http://developer.amazonwebservices.com/connect/thread.jspa?threadID=10255&tstart=0
+
+jSh3ll (v2.0)
+-------------
+Posted on Friday April 14, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is an enhancement release:
+1. Added "listrss" command, which outputs a valid RSS 2.0 feed for a bucket's item listing.
+2. Added "listatom" command, which outputs a valid Atom 1.0 feed for a bucket's item listing.
+3. Added command runtime display.
+
+jSh3ll (v1.2)
+-------------
+Posted on Monday April 10, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is an bugfix release:
+1. Increased the default JVM heapsize to 256Mb.
+2. Increased buffer size for putfile command to 1024 bytes.
+3. Successfully tested transfer of 37Mb file. Larger files should work fine now as well.
+
+jSh3ll (v1.1)
+-------------
+Posted on Sunday April 9, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is an bugfix release:
+1. Increased the default HttpURLConnection timeout to 1hr (3,600,000 milliseconds).
+This prevented connection timeout issues on large file sends (< 15Mb).
+However, I am still getting the following error trying to send a 37Mb file:
+"The underlying connection was closed: An unexpected error occurred on a send."
+Please follow this S3 Forum post for information regarding this issue: 
+http://developer.amazonwebservices.com/connect/thread.jspa?threadID=10268&tstart=0
+
+jSh3ll (v1.0)
+-------------
+Posted on Friday April 7, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is an bugfix release:
+1. Fixed output for "setacl" bucket option.
+2. Updated "deletebucket" check for bucket not being set.
+3. Added XML declaration to ACL templates.
+4. Fixed "list" items displayName null pointer when id.owner = null
+5. Updated "deleteall" functionality and messages.
+6. Updated error messages.
+7. Added bucket check to "put" command.
+8. Added check in "getfile" command for existence of item requested.
+9. Fixed  "gettorrent" command error message.
+10. Fixed "head" command to call AWSAuthConnection.get() for a bucket head request.
+
+
+jSh3ll (RC5)
+-------------
+Posted on Friday March 31, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is a bugfix release:
+1. Fixed public-read-write ACL template. 
+2. Fixed path separator bug in AWSAuthConnection.java.
+   See http://developer.amazonwebservices.com/connect/thread.jspa?threadID=10168&tstart=0
+
+
+jSh3ll (RC4b)
+-------------
+Posted on Wednesday March 29, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is a maintenance release:
+1. Refactored item listing functionality to improve performance. 
+Implementation no longer gets bucket item count first (as this was retrieving the items as well!)
+2. Updated Amazon REST API for Java to latest March 28th release.
+3. Added ReleaseNotes.txt
+
+
+jSh3ll (RC4a)
+-------------
+Posted on Tuesday March 28, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is a maintenance release:
+1. Fixed item listing functionality to handle S3 returning a limited number of items (less than the amount requested).
+2. Updated command documentation to distinguish between literal argument values and substitutable argument values.
+
+
+jSh3ll (RC4)
+------------
+Posted on Sunday March 26, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+If your using Java, then jSh3ll is the quickest way to get up and running with S3!
+
+Check out the added features that jSh3ll provides:
+1. Leverages the Amazon REST library for Java.
+2. Support for ACL retrieval for buckets and items.
+3. Support for HEAD retrieval for buckets and items.
+4. Support for getting a BitTorrent file (.torrent) for an item.
+5. Support for ACL updating of buckets and items.
+6. Support for creating a bucket with a specified ACL.
+7. Support for putting an item with a specified ACL into a bucket.
+8. Error handling.
+9. File compression support (using ZLIB).
+10. Script mode support.
+11. Streaming file upload support (New).
+
+
+jSh3ll (RC3)
+------------
+Posted on Saturday March 25, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is an enhancement release:
+1. Updated command line arguments options.
+2. Added script mode support.
+
+For example, to run jSh3ll in script mode reading all jSh3ll input commands from s3commands.txt and print all output to s3output.txt:
+
+java -jar dist/jSh3ll.jar -h s3.amazonaws.com -u myaccesskeyid -p mysecretaccessid -i s3commands.txt -o s3output.txt
+
+s3commands.txt contains:
+
+bucket dominicdasilva
+list
+quit
+
+s3output.txt contains the following after execution:
+
+Welcome to jSh3ll (Amazon S3 command shell for Java) (c) 2006 SilvaSoft, Inc.
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+Type 'help' for command list.
+jSh3ll> Bucket set to 'dominicdasilva'
+jSh3ll> Item list for bucket 'dominicdasilva'
+key=me.jpg, owner=dsuspense, size=4459 bytes, last modified=Sat Mar 18 22:24:35 EST 2006
+key=test.txt, owner=dsuspense, size=735 bytes, last modified=Wed Mar 22 21:36:27 EST 2006
+key=test2.txt, owner=dsuspense, size=735 bytes, last modified=Wed Mar 22 22:13:07 EST 2006
+jSh3ll> Goodbye
+
+
+jSh3ll (RC2a)
+-------------
+Posted on Saturday March 25, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+This is a maintenance release addressing problems encountered when host, user and pass were not set:
+----------------------------------------------------------------------------
+Welcome to jSh3ll (Amazon S3 command shell for Java) (c) 2006 SilvaSoft, Inc.
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+Type 'help' for command list.
+
+jSh3ll> bucket dominicdasilva
+Error: Not yet connected to S3; set host, user, and pass to continue
+jSh3ll> host
+host = s3.amazonaws.com
+jSh3ll> user
+user is not set
+jSh3ll> user [Access Key ID displayed here]
+jSh3ll> user
+user = [Access Key ID displayed here]
+jSh3ll> pass
+pass is not set
+jSh3ll> pass [Secret Access Key displayed here]
+jSh3ll> pass
+pass = [Secret Access Key displayed here]
+jSh3ll> bucket dominicdasilva
+Bucket set to 'dominicdasilva'
+jSh3ll> list
+Item list for bucket 'dominicdasilva'
+key=me.jpg, owner=dsuspense, size=4459 bytes, last modified=Sat Mar 18 22:24:35 EST 2006
+key=test.txt, owner=dsuspense, size=735 bytes, last modified=Wed Mar 22 21:36:27 EST 2006
+key=test2.txt, owner=dsuspense, size=735 bytes, last modified=Wed Mar 22 22:13:07 EST 2006
+jSh3ll>
+------------------------------------------------------------------------------------------
+
+
+jSh3ll (RC2)
+------------
+Posted on Wednesday March 22, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+jSh3ll provides the following additinal features not present in S3Shell:
+
+1. Leverages the Amazon REST library for Java.
+2. Support for ACL retrieval for buckets and items.
+3. Support for HEAD retrieval for buckets and items.
+4. Support for getting a BitTorrent file (.torrent) for an item.
+5. Support for ACL updating of buckets and items.
+6. Support for creating a bucket with a specified ACL.
+7. Support for putting an item with a specified ACL into a bucket.
+8. Error handling.
+9. File compression support (using ZLIB).
+(jSh3ll can upload your files with ZLIB compression and uncompress them when read back from S3)
+10. Modified item listing functionality and more item metadata displayed (see example below):
+
+jSh3ll> bucket dominicdasilva
+Bucket set to 'dominicdasilva'
+jSh3ll> list
+Item list for bucket 'dominicdasilva'
+key=me.jpg, owner=dsuspense, size=4459 bytes, last modified=Sat Mar 18 22:24:35 EST 2006
+key=test.txt, owner=dsuspense, size=735 bytes, last modified=Wed Mar 22 21:36:27 EST 2006
+key=test2.txt, owner=dsuspense, size=735 bytes, last modified=Wed Mar 22 22:13:07 EST 2006
+jSh3ll> list * 2
+Item list for bucket 'dominicdasilva'
+key=me.jpg, owner=dsuspense, size=4459 bytes, last modified=Sat Mar 18 22:24:35 EST 2006
+key=test.txt, owner=dsuspense, size=735 bytes, last modified=Wed Mar 22 21:36:27 EST 2006
+Press any key
+key=test2.txt, owner=dsuspense, size=735 bytes, last modified=Wed Mar 22 22:13:07 EST 2006
+jSh3ll> 
+
+
+jSh3ll (RC1)
+------------
+Posted on Tuesday March 21, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+
+jSh3ll provides the following additinal features not present in S3Shell:
+
+1. Leverages the Amazon REST library for Java.
+2. Support for ACL retrieval for buckets and items.
+3. Support for HEAD retrieval for buckets and items.
+4. Support for getting a BitTorrent file (.torrent) for an item.
+5. Support for ACL updating of buckets and items.
+6. Support for creating a bucket with a specified ACL.
+7. Support for putting an item with a specified ACL into a bucket.
+8. Error handling.
+9. File compression support (using ZLIB).
+(jSh3ll can upload your files with ZLIB compression and uncompress them when read back from S3)
+
+
+jSh3ll (preview 3)
+------------------
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+The following enhancements have been made (since preview 2):
+1. Support for ACL updating of buckets and items.
+
+
+jSh3ll (preview 2)
+------------------
+Posted on Sunday March 19, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+The following enhancements have been made (since preview 1):
+1. Support for getting a BitTorrent file (.torrent) for an item.
+
+
+jSh3ll (preview 1)
+------------------
+Posted on Sunday March 19, 2006
+
+jSh3ll (Amazon S3 command shell for Java)
+
+The jSh3ll is a Java based command shell for managing your Amazon S3 objects.
+It is built upon the Amazon S3 REST Java library and uses modified source code from the Amazon S3Shell.
+The following enhancements have been made:
+1. Leverages the Amazon REST library for Java.
+2. Support for ACL retrieval for buckets and items.
+3. Support for HEAD retrieval for buckets and items.
+4. Support for putting an item with a specified ACL into a bucket. (coming soon)
+5. Support for ACL updating for buckets and items. (coming soon)

@@ -1,0 +1,1 @@
+java -Xmx256m -jar dist\jSh3ll.jar -h s3.amazonaws.com
