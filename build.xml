@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<project name="jSh3ll" default="dist" basedir=".">
+    <property name="srcdir" location="src"/>
+    <property name="outputdir" location="output"/>
+    <property name="distdir" location="dist"/>
+    <property name="docdir" location="doc"/>
+
+    <property name="javadoc.access" value="protected"/>
+
+    <target name="init">
+        <mkdir dir="${srcdir}"/>
+        <mkdir dir="${outputdir}"/>
+        <mkdir dir="${distdir}"/>
+        <mkdir dir="${docdir}"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac debug="true" srcdir="${srcdir}" destdir="${outputdir}"/>
+    </target>
+
+    <target name="dist" depends="init, compile, doc">
+        <jar jarfile="${distdir}/jSh3ll.jar" basedir="${outputdir}"
+             manifest="MANIFEST.MF"/>
+    </target>
+
+    <target name="doc" depends="init">
+        <javadoc sourcepath="${srcdir}" destdir="${docdir}" source="1.5" packagenames="com.amazon.s3.*, com.silvasoftinc.s3.*, com.silvasoftinc.jsh3ll.*" access="${javadoc.access}"/>
+    </target>
+
+    <target name="clean" depends="init">
+        <delete>
+           <fileset dir="${outputdir}" includes="**/*"/>
+           <fileset dir="${distdir}" includes="**/*"/>
+           <fileset dir="${docdir}" includes="**/*"/>
+        </delete>
+    </target>
+</project>
